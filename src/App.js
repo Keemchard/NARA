@@ -20,12 +20,21 @@ function App() {
   //addTodo function
   const addTodo = (e) => {
     e.preventDefault();
-    const newTodos = [...todos]; // "newTodos" is a variable to hold previous todos
-    const theAddedOne = { id: Math.random(), text: inputValue }; // "theAddedOne is a variable that holds the newly added todo"
-    newTodos.push(theAddedOne); //then i push the newly added todo to the previous todo
-    setTodos(newTodos); //then i use the "setTodos" function to update the "todos" on which i put the "newTodos" as an argument which holds the previous and newly added todos
-    setInputValue(""); // i just set the input to an empty string every time macclick ang add button
-    // setEditingText(inputValue); //the "inputValue" variable value is passed as an argument to set the value of "editingText"
+    //////////////Border color must be red if input is invalid (empty string even with multiple spaces
+    const addTodoInput = document.querySelector(".add-todo-input");
+    if (addTodoInput.value === "") {
+      addTodoInput.style.border = "2px solid red";
+      setInterval(() => {
+        addTodoInput.style.border = "1px solid black";
+      }, 2000);
+    } else {
+      const newTodos = [...todos]; // "newTodos" is a variable to hold previous todos
+      const theAddedOne = { id: Math.random(), text: inputValue }; // "theAddedOne is a variable that holds the newly added todo"
+      newTodos.push(theAddedOne); //then i push the newly added todo to the previous todo
+      setTodos(newTodos); //then i use the "setTodos" function to update the "todos" on which i put the "newTodos" as an argument which holds the previous and newly added todos
+      setInputValue(""); // i just set the input to an empty string every time macclick ang add button
+    }
+    //////////////
   };
 
   //deleteTask function
@@ -62,6 +71,7 @@ function App() {
     );
   };
 
+  //toggle update part as well as set the input to specific value of todo/task
   const toggleUpdate = (IDofTask) => {
     const todoList = todos.map((todoParam) => {
       if (todoParam.id === IDofTask) {
@@ -78,6 +88,7 @@ function App() {
           <h1>Simple List Task</h1>
           <form onSubmit={addTodo}>
             <input
+              className="add-todo-input"
               type="text"
               value={inputValue} //if walang onChange this is not typable it is because, initially the "inputValue" is declared as an empty string (naka "useState" sa taas)
               onChange={(e) => {
@@ -85,7 +96,11 @@ function App() {
                 setInputValue(e.target.value);
               }}
             />
-            <input type="submit" />
+            <input
+              style={{ backgroundColor: "Orange" }}
+              type="submit"
+              value="Add"
+            />
           </form>
           <div className="list-con">
             <ul>
