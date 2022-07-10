@@ -63,15 +63,12 @@ h1 {
 }
 
 .list-con {
-  /* background-color: tomato; */
   margin-top: 30px;
   width: 100%;
   height: 410px;
   overflow-y: scroll;
-  background-color: saddlebrown;
   padding: 20px;
   border-radius: 10px;
-  background-color: lightgray;
 }
 
 .list-con ul li .list {
@@ -117,5 +114,16 @@ h1 {
   button {
     width: auto;
     color: white;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .edit-input {
+    width: 120px;
+  }
+  .list-con {
+    padding: 5px;
+  }
+  .list {
+    padding: 5px;
   }
 }

@@ -114,6 +114,7 @@ function App() {
                         {/* [SECOND] EDITING PART */}
                         <div>
                           <input
+                            className="edit-input"
                             type="text"
                             // placeholder={todoParam.text}
                             onChange={(e) => {
