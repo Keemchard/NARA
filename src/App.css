@@ -25,7 +25,12 @@ li {
 .task-name {
   font-size: 20px;
   margin-left: 10px;
+  transition: 0.25s;
 }
+.task-name:hover {
+  font-weight: bold;
+}
+
 button,
 input {
   padding: 10px 15px;
@@ -33,10 +38,23 @@ input {
   margin: 0 5px;
   border: 1px solid black;
   border-radius: 10px;
+  transition: 0.25s;
 }
 button {
   width: 100px;
   color: white;
+}
+input:focus {
+  transform: scale(1.1);
+  border: 3px solid orange;
+  margin-right: 15px;
+}
+input:hover {
+  transform: scale(1.1);
+  margin-right: 15px;
+}
+button:hover {
+  transform: scale(1.1);
 }
 
 h1 {
@@ -65,6 +83,11 @@ h1 {
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.25s;
+}
+
+.list:hover {
+  transform: scale(1.03);
 }
 
 .foot-hehe {
