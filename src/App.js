@@ -127,13 +127,15 @@ function App() {
                             onClick={() => {
                               saveEditedTask(todoParam.id);
                             }}
+                            style={{ backgroundColor: "green" }}
                           >
-                            Submit
+                            Save
                           </button>
                           <button
                             onClick={() => {
                               cancelEdit(todoParam.id); //para mag false, then babalik sa [FIRST], which is ung may delete button na part
                             }}
+                            style={{ backgroundColor: "gray" }}
                           >
                             Cancel
                           </button>
@@ -148,15 +150,8 @@ function App() {
                         </div>
                         <div>
                           <button
-                            className="del-btn"
-                            onClick={() => {
-                              deleteTask(todoParam.id); //https://blog.devgenius.io/why-it-is-necessary-to-use-arrow-functions-with-react-event-handler-e0b278710310
-                            }}
-                          >
-                            Delete
-                          </button>
-                          <button
                             className="upd-btn"
+                            style={{ backgroundColor: "blue" }}
                             onClick={() => {
                               toggleUpdate(todoParam.id); //para mag true at malipat sa [SECOND] edit part
                             }}
@@ -164,7 +159,16 @@ function App() {
                             //   setTodoEditing(todoParam.id); //para mag true at malipat sa [SECOND] edit part
                             // }}
                           >
-                            Update
+                            Edit
+                          </button>
+                          <button
+                            className="del-btn"
+                            style={{ backgroundColor: "red" }}
+                            onClick={() => {
+                              deleteTask(todoParam.id); //https://blog.devgenius.io/why-it-is-necessary-to-use-arrow-functions-with-react-event-handler-e0b278710310
+                            }}
+                          >
+                            Delete
                           </button>
                         </div>
                       </div>
@@ -175,6 +179,10 @@ function App() {
             </ul>
           </div>
         </div>
+        <footer className="foot-hehe">
+          <p>&copy; KC | 2022</p>
+          <div>Made with &hearts; and lol</div>
+        </footer>
       </div>
     </>
   );
