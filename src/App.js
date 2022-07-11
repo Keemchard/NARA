@@ -10,7 +10,7 @@ function App() {
     text: "Clean the house",
   };
   //state [the "todos" variable is basically the one who holds the data we passed in]
-  const [todos, setTodos] = useState([]); // initially may value sya ng "myTodo" object && the "setTodos" is a function to update the "todos" variable on which naka destructure ito
+  const [todos, setTodos] = useState([]); // initially may value sya ng empty array object && the "setTodos" is a function to update the "todos" variable on which naka destructure ito
   const [inputValue, setInputValue] = useState(""); // this is for onChange, first, the "inputValue" holds an empty string, then we have the "setInputValue" on which will update the "inputValue", in our case this is what the user will type
   //hooks for edit below
   const [todoEditing, setTodoEditing] = useState(null); //the "todoEditing" will gonna hold the todo id, initially i set it to null
@@ -20,7 +20,7 @@ function App() {
   //addTodo function
   const addTodo = (e) => {
     e.preventDefault();
-    //////////////Border color must be red if input is invalid (empty string even with multiple spaces
+    //////////////Border color must be red if input is invalid
     const addTodoInput = document.querySelector(".add-todo-input");
     if (addTodoInput.value === "") {
       addTodoInput.style.border = "2px solid red";
@@ -143,7 +143,7 @@ function App() {
                         </div>
                       </div>
                     ) : (
-                      //if false therfor just display the specific todo in text
+                      //if false therefor just display the specific todo in text
                       <div className="list">
                         {/* [FIRST] DELETING PART and TOGGLE EDIT PART*/}
                         <div>
