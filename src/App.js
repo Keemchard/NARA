@@ -1,26 +1,17 @@
 import "./App.css";
 import React, { useState } from "react";
 
-//components
-import Todo from "./components/Todo.js";
-
 function App() {
-  const myTodo = {
-    id: 0, //it can be Math.random() too
-    text: "Clean the house",
-  };
-  //state [the "todos" variable is basically the one who holds the data we passed in]
-  const [todos, setTodos] = useState([]); // initially may value sya ng empty array object && the "setTodos" is a function to update the "todos" variable on which naka destructure ito
-  const [inputValue, setInputValue] = useState(""); // this is for onChange, first, the "inputValue" holds an empty string, then we have the "setInputValue" on which will update the "inputValue", in our case this is what the user will type
+  const [todos, setTodos] = useState([]);
+  const [inputValue, setInputValue] = useState("");
   //hooks for edit below
-  const [todoEditing, setTodoEditing] = useState(null); //the "todoEditing" will gonna hold the todo id, initially i set it to null
-  //[BELOW]were also going to want to keep track of the text that were going to change the todo that were editing to
-  const [editingText, setEditingText] = useState(""); //this will hold the input html tag value for update
+  const [todoEditing, setTodoEditing] = useState(null); //for id
+  const [editingText, setEditingText] = useState(""); //for editing input
 
   //addTodo function
   const addTodo = (e) => {
     e.preventDefault();
-    //////////////Border color must be red if input is invalid
+    //Border color must be red if input is invalid
     const addTodoInput = document.querySelector(".add-todo-input");
     if (addTodoInput.value === "") {
       addTodoInput.style.border = "2px solid red";
@@ -28,19 +19,18 @@ function App() {
         addTodoInput.style.border = "1px solid black";
       }, 2000);
     } else {
-      const newTodos = [...todos]; // "newTodos" is a variable to hold previous todos
-      const theAddedOne = { id: Math.random(), text: inputValue }; // "theAddedOne is a variable that holds the newly added todo"
-      newTodos.push(theAddedOne); //then i push the newly added todo to the previous todo
-      setTodos(newTodos); //then i use the "setTodos" function to update the "todos" on which i put the "newTodos" as an argument which holds the previous and newly added todos
-      setInputValue(""); // i just set the input to an empty string every time macclick ang add button
+      const newTodos = [...todos];
+      const theAddedOne = { id: Math.random(), text: inputValue };
+      newTodos.push(theAddedOne);
+      setTodos(newTodos);
+      setInputValue("");
     }
-    //////////////
   };
 
   //deleteTask function
   const deleteTask = (IDofTaskToBeDeleted) => {
     const filteredListOfTodos = todos.filter((todosParam) => {
-      return todosParam.id !== IDofTaskToBeDeleted; //this will return task that the id is not equal to the deleted (task clicked) one || ififilter nya ung id na hindi equal
+      return todosParam.id !== IDofTaskToBeDeleted;
     });
     setTodos(filteredListOfTodos);
   };
@@ -54,18 +44,11 @@ function App() {
       return todoParam;
     });
     setTodos(updatedTodos);
-    setTodoEditing(null); //so that the id will return to null after updating the task
+    setTodoEditing(null);
   };
 
   //cancel the edit function
-  const cancelEdit = (IDofTask) => {
-    const cancelEdit = todos.map((todoParam) => {
-      if (todoParam.id === IDofTask) {
-        setEditingText(todoParam.text);
-      }
-      return todoParam;
-    });
-    setTodos(cancelEdit);
+  const cancelEdit = () => {
     setTodoEditing(
       "it can be anything lol haha, just to have a false value to the ternary operator, thats why this value can be anything except the same id value of the click task"
     );
@@ -90,9 +73,8 @@ function App() {
             <input
               className="add-todo-input"
               type="text"
-              value={inputValue} //if walang onChange this is not typable it is because, initially the "inputValue" is declared as an empty string (naka "useState" sa taas)
+              value={inputValue}
               onChange={(e) => {
-                //naglagay ako ng onChange, then i set the "setInputValue" on which the function to update my "inputValue" to the current data that the user is typing
                 setInputValue(e.target.value);
               }}
             />
@@ -116,7 +98,6 @@ function App() {
                           <input
                             className="edit-input"
                             type="text"
-                            // placeholder={todoParam.text}
                             onChange={(e) => {
                               setEditingText(e.target.value);
                             }}
@@ -134,7 +115,7 @@ function App() {
                           </button>
                           <button
                             onClick={() => {
-                              cancelEdit(todoParam.id); //para mag false, then babalik sa [FIRST], which is ung may delete button na part
+                              cancelEdit(); //para mag false, then babalik sa [FIRST], which is ung may delete button na part
                             }}
                             style={{ backgroundColor: "gray" }}
                           >
@@ -156,9 +137,6 @@ function App() {
                             onClick={() => {
                               toggleUpdate(todoParam.id); //para mag true at malipat sa [SECOND] edit part
                             }}
-                            // onClick={() => {
-                            //   setTodoEditing(todoParam.id); //para mag true at malipat sa [SECOND] edit part
-                            // }}
                           >
                             Edit
                           </button>
