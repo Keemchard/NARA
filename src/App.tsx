@@ -1,6 +1,8 @@
 import React, { FormEvent, useState } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 import TodoList from "./components/TodoList";
 import { TodoModel } from "./Types/TodoModel";
 
@@ -43,6 +45,7 @@ function App() {
 
   return (
     <div className="main-con h-[100vh] bg-[tomato] flex flex-col items-center justify-center">
+      <Header />
       <div className="todo-con bg-[red] w-[500px] p-[10px]">
         <div className="form-con bg-[green]  mb-[10px] pt-[10px] pb-[10px]">
           <form onSubmit={addTodo} className="w-[100%] flex justify-between">
@@ -71,6 +74,7 @@ function App() {
           />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
