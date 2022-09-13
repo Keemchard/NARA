@@ -26,11 +26,12 @@ const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
   };
 
   return (
-    <div className="bg-[gray] m-[10px] p-[10px] ">
+    <div className="bg-[gray] m-[10px] p-[10px] rounded">
       {todoId === id ? (
         <div className="flex items-center justify-between">
           <div>
             <input
+              className="p-[3px] pl-[5px] rounded"
               type="text"
               value={editInput}
               onChange={(e) => {
@@ -38,7 +39,7 @@ const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
               }}
             />
           </div>
-          <div>
+          <div className="w-[40%] flex justify-between">
             <TodoButton
               buttonName="Cancel"
               buttonColor="green"
@@ -58,7 +59,7 @@ const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
         </div>
       ) : (
         <div className="flex items-center justify-between">
-          <div className="flex">
+          <div className="flex w-[60%]">
             <input
               type="checkbox"
               checked={completed}
@@ -69,12 +70,14 @@ const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
               }}
             />
             {isDone ? (
-              <p className="ml-[10px] text-[20px]">{title} Done</p>
+              <p className="ml-[10px] text-[16px]  text-gray-100 line-through">
+                {title}
+              </p>
             ) : (
-              <p className="ml-[10px] text-[20px]">{title} Hindi pa done</p>
+              <p className="ml-[10px] text-[16px] font-semibold">{title} </p>
             )}
           </div>
-          <div>
+          <div className="w-[40%] flex justify-between">
             <TodoButton
               buttonName="Edit"
               buttonColor="lightBlue"

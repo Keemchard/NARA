@@ -13,7 +13,7 @@ const TodoButton = ({
 }: buttonModel) => {
   return (
     <button
-      className="rounded border-[2px] border-solid border-[black] m-[10px] w-[70px]"
+      className="rounded border-[2px] border-solid border-[black] w-[60px] pt-[3px] pb-[3px]"
       style={{ backgroundColor: `${buttonColor}` }}
       onClick={() => {
         buttonFunction();

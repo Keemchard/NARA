@@ -1,4 +1,4 @@
-import React, { FormEvent, FormEventHandler, useState } from "react";
+import React, { FormEvent, useState } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
 import TodoList from "./components/TodoList";
@@ -43,31 +43,33 @@ function App() {
 
   return (
     <div className="main-con h-[100vh] bg-[tomato] flex flex-col items-center justify-center">
-      <div className="form-con bg-[green] w-[100%] flex justify-center m-[10px]">
-        <form onSubmit={addTodo}>
-          <input
-            className="border-[2px] border-solid border-black rounded p-[5px] mr-[10px]"
-            type="text"
-            placeholder="input your task here"
-            value={userInput}
-            onChange={(e) => {
-              setUserInput(e.target.value);
-            }}
+      <div className="todo-con bg-[red] w-[500px] p-[10px]">
+        <div className="form-con bg-[green]  mb-[10px] pt-[10px] pb-[10px]">
+          <form onSubmit={addTodo} className="w-[100%] flex justify-between">
+            <input
+              className="border-[2px] border-solid border-black rounded p-[5px] mr-[10px] w-[70%]"
+              type="text"
+              placeholder="input your task here"
+              value={userInput}
+              onChange={(e) => {
+                setUserInput(e.target.value);
+              }}
+            />
+            <input
+              className="border-[2px] border-solid border-black rounded p-[5px] w-[25%]"
+              type="submit"
+              value="Add Task"
+            />
+          </form>
+        </div>
+        <div className="list-con bg-[aqua] w-[100%] h-[500px] rounded">
+          <TodoList
+            todos={todos}
+            deleteTodo={deleteTodo}
+            saveEdit={saveEdit}
+            doneTodo={doneTodo}
           />
-          <input
-            className="border-[2px] border-solid border-black rounded p-[5px]"
-            type="submit"
-            value="Add Task"
-          />
-        </form>
-      </div>
-      <div className="list-con bg-[aqua] w-[100%]">
-        <TodoList
-          todos={todos}
-          deleteTodo={deleteTodo}
-          saveEdit={saveEdit}
-          doneTodo={doneTodo}
-        />
+        </div>
       </div>
     </div>
   );
