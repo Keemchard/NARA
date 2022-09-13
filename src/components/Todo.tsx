@@ -2,12 +2,19 @@ import React, { useState } from "react";
 import { TodoModel } from "../Types/TodoModel";
 import TodoButton from "./TodoButton";
 
-const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: any) => {
+interface TodolistMod {
+  todos: TodoModel;
+  deleteTodo: (id: number) => number | void;
+  saveEdit: (id: number, title: string) => string | void;
+  doneTodo: (id: number, isDone: boolean) => boolean | void;
+}
+
+const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
   const { id, title, isDone } = todos;
 
   const [todoId, setTodoId] = useState<number | null>();
-  const [editInput, setEditInput] = useState<string>();
-  const [completed, setCompleted] = useState<boolean>(isDone);
+  const [editInput, setEditInput] = useState<string>("");
+  const [completed, setCompleted] = useState<boolean>(false);
 
   const toggleEdit = (id: number) => {
     setEditInput(title);
