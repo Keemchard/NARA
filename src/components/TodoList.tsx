@@ -3,7 +3,14 @@ import { TodoModel } from "../Types/TodoModel";
 import NoTaskPage from "./NoTaskPage";
 import Todo from "./Todo";
 
-const TodoList = ({ todos, deleteTodo, saveEdit }: any) => {
+interface TodolistMod {
+  todos: TodoModel[];
+  deleteTodo: (id: number) => number | void;
+  saveEdit: (id: number, title: string) => string | void;
+  doneTodo: (id: number, isDone: boolean) => boolean | void;
+}
+
+const TodoList = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
   return todos.length === 0 ? (
     <NoTaskPage />
   ) : (
@@ -15,6 +22,7 @@ const TodoList = ({ todos, deleteTodo, saveEdit }: any) => {
             todos={items}
             deleteTodo={deleteTodo}
             saveEdit={saveEdit}
+            doneTodo={doneTodo}
           />
         );
       })}

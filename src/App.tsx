@@ -33,6 +33,14 @@ function App() {
     });
   };
 
+  const doneTodo = (id: number, isDone: boolean) => {
+    todos.map((item: TodoModel) => {
+      if (item.id === id) {
+        item.isDone = isDone;
+      }
+    });
+  };
+
   return (
     <div className="main-con h-[100vh] bg-[tomato] flex flex-col items-center justify-center">
       <div className="form-con bg-[green] w-[100%] flex justify-center m-[10px]">
@@ -54,7 +62,12 @@ function App() {
         </form>
       </div>
       <div className="list-con bg-[aqua] w-[100%]">
-        <TodoList todos={todos} deleteTodo={deleteTodo} saveEdit={saveEdit} />
+        <TodoList
+          todos={todos}
+          deleteTodo={deleteTodo}
+          saveEdit={saveEdit}
+          doneTodo={doneTodo}
+        />
       </div>
     </div>
   );

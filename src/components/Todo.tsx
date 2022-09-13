@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { TodoModel } from "../Types/TodoModel";
 import TodoButton from "./TodoButton";
 
-const Todo = ({ todos, deleteTodo, saveEdit }: any) => {
+const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: any) => {
   const { id, title, isDone } = todos;
 
   const [todoId, setTodoId] = useState<number | null>();
   const [editInput, setEditInput] = useState<string>();
+  const [completed, setCompleted] = useState<boolean>(isDone);
 
   const toggleEdit = (id: number) => {
     setEditInput(title);
@@ -50,7 +51,22 @@ const Todo = ({ todos, deleteTodo, saveEdit }: any) => {
         </div>
       ) : (
         <div className="flex items-center justify-between">
-          <div>{title}</div>
+          <div className="flex">
+            <input
+              type="checkbox"
+              checked={completed}
+              onChange={() => {
+                setCompleted(!completed);
+                doneTodo(id, !completed);
+                console.log(todos);
+              }}
+            />
+            {isDone ? (
+              <p className="ml-[10px] text-[20px]">{title} Done</p>
+            ) : (
+              <p className="ml-[10px] text-[20px]">{title} Hindi pa done</p>
+            )}
+          </div>
           <div>
             <TodoButton
               buttonName="Edit"
