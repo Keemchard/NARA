@@ -31,7 +31,7 @@ const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
         <div className="flex items-center justify-between">
           <div>
             <input
-              className="p-[3px] pl-[5px] rounded"
+              className="p-[3px] pl-[5px] rounded bg-[#111827]"
               type="text"
               value={editInput}
               onChange={(e) => {
