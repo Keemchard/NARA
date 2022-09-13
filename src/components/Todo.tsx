@@ -26,7 +26,7 @@ const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
   };
 
   return (
-    <div className="bg-[gray] m-[10px] p-[10px] rounded">
+    <div className="bg-[#374151] m-[10px] p-[10px] rounded">
       {todoId === id ? (
         <div className="flex items-center justify-between">
           <div>
@@ -61,6 +61,7 @@ const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
         <div className="flex items-center justify-between">
           <div className="flex w-[60%]">
             <input
+              className="bg-[#1F2937]"
               type="checkbox"
               checked={completed}
               onChange={() => {
@@ -74,13 +75,15 @@ const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
                 {title}
               </p>
             ) : (
-              <p className="ml-[10px] text-[16px] font-semibold">{title} </p>
+              <p className="ml-[10px] text-[16px] text-[#0ED3CF] font-semibold">
+                {title}
+              </p>
             )}
           </div>
           <div className="w-[40%] flex justify-between">
             <TodoButton
               buttonName="Edit"
-              buttonColor="lightBlue"
+              buttonColor="#325381"
               buttonFunction={() => {
                 toggleEdit(id);
               }}

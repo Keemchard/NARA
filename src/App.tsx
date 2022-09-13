@@ -44,13 +44,13 @@ function App() {
   };
 
   return (
-    <div className="main-con h-[100vh] bg-[tomato] flex flex-col items-center justify-center">
+    <div className="main-con h-[100vh] bg-[#111827] flex flex-col items-center justify-center">
       <Header />
-      <div className="todo-con bg-[red] w-[500px] p-[10px]">
-        <div className="form-con bg-[green]  mb-[10px] pt-[10px] pb-[10px]">
+      <div className="todo-con bg-[transparent] w-[500px] p-[10px]">
+        <div className="form-con bg-[transparent]  mb-[10px] pt-[10px] pb-[10px]">
           <form onSubmit={addTodo} className="w-[100%] flex justify-between">
             <input
-              className="border-[2px] border-solid border-black rounded p-[5px] mr-[10px] w-[70%]"
+              className="border-[2px] border-solid border-black rounded p-[7px] mr-[10px] w-[70%] bg-[#374151]"
               type="text"
               placeholder="input your task here"
               value={userInput}
@@ -59,13 +59,13 @@ function App() {
               }}
             />
             <input
-              className="border-[2px] border-solid border-black rounded p-[5px] w-[25%]"
+              className="border-[2px] border-solid border-[#0ED3CF] rounded p-[5px] w-[25%]"
               type="submit"
               value="Add Task"
             />
           </form>
         </div>
-        <div className="list-con bg-[aqua] w-[100%] h-[500px] rounded">
+        <div className="list-con bg-[#1F2937] w-[100%] h-[500px] rounded">
           <TodoList
             todos={todos}
             deleteTodo={deleteTodo}
