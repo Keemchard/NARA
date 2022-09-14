@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
 import Footer from "./components/Footer";
@@ -7,8 +7,19 @@ import TodoList from "./components/TodoList";
 import { TodoModel } from "./Types/TodoModel";
 
 function App() {
-  const [todos, setTodos] = useState<TodoModel[]>([]);
+  const [todos, setTodos] = useState<TodoModel[]>(() => {
+    const savedTodos = localStorage.getItem("todos");
+    if (savedTodos) {
+      return JSON.parse(savedTodos);
+    } else {
+      return [];
+    }
+  });
   const [userInput, setUserInput] = useState<string>("");
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = (e: FormEvent) => {
     e.preventDefault();
@@ -28,11 +39,13 @@ function App() {
   };
 
   const saveEdit = (id: number, title: string) => {
-    todos.map((item: TodoModel) => {
+    const editedTodos = todos.map((item: TodoModel) => {
       if (item.id === id) {
         item.title = title;
       }
+      return item;
     });
+    setTodos(editedTodos);
   };
 
   const doneTodo = (id: number, isDone: boolean) => {
