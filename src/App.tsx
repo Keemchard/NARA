@@ -49,11 +49,13 @@ function App() {
   };
 
   const doneTodo = (id: number, isDone: boolean) => {
-    todos.map((item: TodoModel) => {
+    const completedTodo = todos.map((item: TodoModel) => {
       if (item.id === id) {
         item.isDone = isDone;
       }
+      return item;
     });
+    setTodos(completedTodo);
   };
 
   return (
