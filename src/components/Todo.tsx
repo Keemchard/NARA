@@ -29,7 +29,7 @@ const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
     <div className="bg-[#374151] m-[10px] p-[10px] rounded">
       {todoId === id ? (
         <div className="flex items-center justify-between">
-          <div className="w-[60%]">
+          <div className="w-[58%]">
             <input
               className="p-[3px] pl-[5px] rounded bg-[#111827]"
               type="text"
