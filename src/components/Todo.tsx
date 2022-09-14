@@ -14,7 +14,7 @@ const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
 
   const [todoId, setTodoId] = useState<number | null>();
   const [editInput, setEditInput] = useState<string>("");
-  const [completed, setCompleted] = useState<boolean>(false);
+  const [completed, setCompleted] = useState<any>(isDone);
 
   const toggleEdit = (id: number) => {
     setEditInput(title);
