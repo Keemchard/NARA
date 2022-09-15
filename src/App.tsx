@@ -26,11 +26,15 @@ function App() {
 
   const addTodo = (e: FormEvent) => {
     e.preventDefault();
+
     const newSetOfTodos = [
       { id: Math.random(), title: userInput, isDone: false },
       ...todos,
     ];
-    if (userInput === "") {
+
+    let formattedUserInput = userInput;
+    formattedUserInput = formattedUserInput.replace(/\s+/g, "");
+    if (formattedUserInput === "") {
       getIsAddInputEmpty(true);
       setTimeout(() => {
         getIsAddInputEmpty(false);
