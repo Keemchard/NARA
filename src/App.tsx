@@ -18,7 +18,7 @@ function App() {
     }
   });
   const [userInput, setUserInput] = useState<string>("");
-  const [isAddInputEmpty, getIsAddInputEmpty] = useState<boolean>(false);
+  const [isAddInputEmpty, setIsAddInputEmpty] = useState<boolean>(false);
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -35,13 +35,13 @@ function App() {
     let formattedUserInput = userInput;
     formattedUserInput = formattedUserInput.replace(/\s+/g, "");
     if (formattedUserInput === "") {
-      getIsAddInputEmpty(true);
+      setIsAddInputEmpty(true);
       setTimeout(() => {
-        getIsAddInputEmpty(false);
+        setIsAddInputEmpty(false);
       }, 3000);
     } else {
       setTodos(newSetOfTodos);
-      getIsAddInputEmpty(false);
+      setIsAddInputEmpty(false);
     }
 
     setUserInput("");
@@ -98,7 +98,7 @@ function App() {
         </div>
         {isAddInputEmpty && (
           <div className="invalid   text-center">
-            <InvalidInput />
+            <InvalidInput text="💥Invalid Input!💥" />
           </div>
         )}
         <div className="list-con bg-[#1F2937] w-[100%] h-[500px] rounded">

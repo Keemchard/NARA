@@ -5,7 +5,7 @@ const Footer = () => {
     <div className="m-[20px]">
       <p className="text-[13px]">
         Developed by{" "}
-        <span className="font-semibold text-[15px]">Keemchard</span>
+        <span className="font-semibold text-[15px]">Keemchard✨</span>
       </p>
     </div>
   );
