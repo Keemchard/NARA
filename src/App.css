@@ -1,129 +1,14 @@
-.main-container {
-  height: 100vh;
-  background-color: lightgray;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-.container {
-  /* background-color: gray; */
-  width: 850px;
-  height: 600px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-li {
-  list-style-type: none;
-}
-.task-name {
-  font-size: 20px;
-  margin-left: 10px;
-  transition: 0.25s;
-}
-.task-name:hover {
-  font-weight: bold;
-}
-
-button,
-input {
-  padding: 10px 15px;
-  font-size: 20px;
-  margin: 0 5px;
-  border: 1px solid black;
-  border-radius: 10px;
-  transition: 0.25s;
-}
-button {
-  width: 100px;
-  color: white;
-}
-input:focus {
-  transform: scale(1.1);
-  border: 3px solid orange;
-  margin-right: 15px;
-}
-input:hover {
-  transform: scale(1.1);
-  margin-right: 15px;
-}
-button:hover {
-  transform: scale(1.1);
-}
-
-h1 {
-  text-align: center;
-  margin: 10px 0 20px 0;
-}
-
 .list-con {
-  margin-top: 30px;
-  width: 100%;
-  height: 410px;
   overflow-y: scroll;
-  padding: 20px;
-  border-radius: 10px;
 }
 
-.list-con ul li .list {
-  /* background-color: gray; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  transition: 0.25s;
-}
-
-.list:hover {
-  transform: scale(1.03);
-}
-
-.foot-hehe {
-  position: absolute;
-  bottom: 20px;
-  text-align: center;
-}
-
-@media only screen and (max-width: 870px) {
-  .main-container {
-    padding: 10px;
-  }
-  .container {
+@media only screen and (max-width: 600px) {
+  .todo-con {
     width: 100%;
-    height: 80vh;
-  }
-  .task-name {
-    font-size: 15px;
-    margin-left: 5px;
-  }
-  button,
-  input {
-    padding: 10px 10px;
-    font-size: 15px;
-    margin: 0 5px;
-  }
-  button {
-    width: auto;
-    color: white;
   }
 }
-@media only screen and (max-width: 500px) {
-  .edit-input {
-    width: 120px;
-  }
+@media only screen and (max-width: 450px) {
   .list-con {
-    padding: 5px;
-  }
-  .list {
-    padding: 5px;
+    height: 50vh;
   }
 }
