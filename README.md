@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Boost your productivity using TL
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![mainlogoicon](https://user-images.githubusercontent.com/86994854/190336964-dcae367e-ec6b-4bfb-b00a-beae305b790f.png)
+
 
 ## Available Scripts
 
