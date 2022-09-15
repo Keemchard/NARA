@@ -3,6 +3,8 @@ import React, { FormEvent, useEffect, useState } from "react";
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import InvalidInput from "./components/InvalidInput";
+import NoTaskPage from "./components/NoTaskPage";
 import TodoList from "./components/TodoList";
 import { TodoModel } from "./Types/TodoModel";
 
@@ -16,6 +18,7 @@ function App() {
     }
   });
   const [userInput, setUserInput] = useState<string>("");
+  const [isAddInputEmpty, getIsAddInputEmpty] = useState<boolean>(false);
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -27,7 +30,16 @@ function App() {
       { id: Math.random(), title: userInput, isDone: false },
       ...todos,
     ];
-    setTodos(newSetOfTodos);
+    if (userInput === "") {
+      getIsAddInputEmpty(true);
+      setTimeout(() => {
+        getIsAddInputEmpty(false);
+      }, 3000);
+    } else {
+      setTodos(newSetOfTodos);
+      getIsAddInputEmpty(false);
+    }
+
     setUserInput("");
   };
 
@@ -80,6 +92,11 @@ function App() {
             />
           </form>
         </div>
+        {isAddInputEmpty && (
+          <div className="invalid   text-center">
+            <InvalidInput />
+          </div>
+        )}
         <div className="list-con bg-[#1F2937] w-[100%] h-[500px] rounded">
           <TodoList
             todos={todos}
