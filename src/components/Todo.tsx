@@ -28,10 +28,10 @@ const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
   return (
     <div className="bg-[#374151] m-[10px] p-[10px] rounded">
       {todoId === id ? (
-        <div className="flex items-center justify-between">
-          <div className="w-[58%]">
+        <div className="flex flex-col items-center justify-between ">
+          <div className="w-[100%] mb-[10px]">
             <input
-              className="p-[3px] pl-[5px] rounded bg-[#111827]"
+              className="p-[3px] pl-[5px] rounded bg-[#111827] w-[100%]"
               type="text"
               value={editInput}
               onChange={(e) => {
