@@ -2,15 +2,9 @@ import React, { FormEvent, useEffect, useState } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 // import logo from "./logo.svg";
 import "./App.css";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import InvalidInput from "./components/InvalidInput";
-import NoTaskPage from "./components/NoTaskPage";
-import TodoList from "./components/TodoList";
 import DisplayAll from "./DisplayAll";
 import MainHeader from "./MainHeader";
 import TodoDash from "./TodoDash";
-import { TodoModel } from "./Types/TodoModel";
 
 function App() {
   return (
