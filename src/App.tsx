@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="main-con h-[100vh] bg-[#111827]">
       <MainHeader />
-      <div className="content bg-[green] h-[93vh] flex items-center justify-center">
+      <div className="content bg-[gray] h-[90vh] flex items-center justify-center">
         <Routes>
           <Route path="/" element={<DisplayAll />} />
           <Route path="/todo" element={<TodoDash />} />

@@ -7,6 +7,60 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
+@media only screen and (max-width: 1194px) {
+  .datentime {
+    width: 350px;
+  }
+  .day {
+    font-size: 22px;
+  }
+  .time {
+    font-size: 35px;
+  }
+  .main-head .logo {
+    flex: auto;
+  }
+  .main-head .menu {
+    flex: auto;
+  }
+}
+
+@media only screen and (max-width: 692px) {
+  .main-head {
+    flex-direction: column;
+    align-items: baseline;
+    position: relative;
+  }
+  .menu {
+    width: 100%;
+  }
+  .logo {
+    align-items: center;
+  }
+  .logo-img {
+    width: 100px;
+    margin-top: 10px;
+  }
+  .datentime {
+    width: 250px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .day {
+    font-size: 15px;
+  }
+  .time {
+    font-size: 25px;
+  }
+  .date {
+    font-size: 12px;
+  }
+  .dropdown {
+    margin-top: 20px;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .todo-main-con {
     width: 100%;

@@ -13,10 +13,10 @@ const MainHeader = () => {
   };
 
   return (
-    <div className="  p-[10px] flex items-center">
-      <div className="logo   flex-1">
+    <div className="main-head p-[10px] flex items-center">
+      <div className="logo flex-1">
         <Link to="/">
-          <img className="w-[120px] " src={naraLogo} alt="Logo" />
+          <img className="logo-img w-[120px] " src={naraLogo} alt="Logo" />
         </Link>
       </div>
       <div className="menu  flex-[1] flex justify-between items-center">
