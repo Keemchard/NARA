@@ -11,7 +11,7 @@ function App() {
     <div className="main-con h-[auto] bg-[#111827]">
       <MainHeader />
       {/* <hr className="mr-[10px] ml-[10px] bg-[#374151]" /> */}
-      <div className="content bg-[gray] h-[90vh] flex items-center justify-center">
+      <div className="content bg-[gray] h-[auto] pt-[20px] pb-[20px] flex items-center justify-center">
         <Routes>
           <Route path="/" element={<DisplayAll />} />
           <Route path="/todo" element={<TodoDash />} />
