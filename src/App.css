@@ -3,7 +3,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .todo-con {
+  .todo-main-con {
     width: 100%;
   }
 }

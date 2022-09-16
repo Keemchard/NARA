@@ -1,6 +1,6 @@
 import React, { FormEvent, useEffect, useState } from "react";
 // import logo from "./logo.svg";
-import "./App.css";
+// import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import InvalidInput from "./components/InvalidInput";
@@ -75,9 +75,9 @@ const TodoDash = () => {
   };
 
   return (
-    <div className="main-con h-[100vh] bg-[#111827] flex flex-col items-center justify-center">
+    <div className="todo-main-con text-center bg-[aqua] w-[520px]">
       <Header />
-      <div className="todo-con bg-[transparent] w-[500px] p-[10px]">
+      <div className="todo-con bg-[transparent] p-[10px]">
         <div className="form-con bg-[transparent]  mb-[10px] pt-[10px] pb-[10px]">
           <form onSubmit={addTodo} className="w-[100%] flex justify-between">
             <input
@@ -101,7 +101,7 @@ const TodoDash = () => {
             <InvalidInput text="💥Invalid Input!💥" />
           </div>
         )}
-        <div className="list-con bg-[#1F2937] w-[100%] h-[500px] rounded">
+        <div className="list-con bg-[#1F2937] w-[100%] h-[450px] rounded">
           <TodoList
             todos={todos}
             deleteTodo={deleteTodo}
