@@ -59,6 +59,9 @@
   .dropdown {
     margin-top: 20px;
   }
+  .dropdown button {
+    margin-right: 0;
+  }
 }
 
 @media only screen and (max-width: 600px) {

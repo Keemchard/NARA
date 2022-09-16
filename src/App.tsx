@@ -8,8 +8,9 @@ import TodoDash from "./TodoDash";
 
 function App() {
   return (
-    <div className="main-con h-[100vh] bg-[#111827]">
+    <div className="main-con h-[auto] bg-[#111827]">
       <MainHeader />
+      {/* <hr className="mr-[10px] ml-[10px] bg-[#374151]" /> */}
       <div className="content bg-[gray] h-[90vh] flex items-center justify-center">
         <Routes>
           <Route path="/" element={<DisplayAll />} />
