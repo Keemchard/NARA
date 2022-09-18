@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import DisplayAll from "./DisplayAll";
 import MainHeader from "./MainHeader";
+import NoteDash from "./notesComponents/NoteDash";
 import TodoDash from "./TodoDash";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<DisplayAll />} />
           <Route path="/todo" element={<TodoDash />} />
+          <Route path="/note" element={<NoteDash />} />
         </Routes>
       </div>
     </div>

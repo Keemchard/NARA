@@ -57,7 +57,7 @@ const DateNTime = () => {
   return (
     <div className="datentime flex p-[12px] rounded-[5px] bg-[#1F2937] w-[400px] hover:scale-105 duration-75">
       <div className="flex-[1] flex flex-col justify-center">
-        <div className="day text-[28px]">
+        <div className="day text-[24px]">
           Happy <span className="font-bold">{day}!</span>
         </div>
         <div className="date">{dateToday}</div>

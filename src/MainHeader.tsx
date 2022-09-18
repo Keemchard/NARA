@@ -39,12 +39,15 @@ const MainHeader = () => {
                   Todo <FaArrowRight />
                 </li>
               </Link>
-              <li
-                onClick={openMenu}
-                className="bg-[#374151] p-[5px] mb-[5px] flex items-center justify-between"
-              >
-                Notes <FaArrowRight />
-              </li>
+              <Link to="/note">
+                <li
+                  onClick={openMenu}
+                  className="bg-[#374151] p-[5px] mb-[5px] flex items-center justify-between"
+                >
+                  Notes <FaArrowRight />
+                </li>
+              </Link>
+
               <Link to="/">
                 <li
                   onClick={openMenu}
