@@ -1,8 +1,9 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import "../App.css";
 import NoteAddForm from "./NoteAddForm";
 import NoteButton from "./NoteButton";
 import NoteCard from "./NoteCard";
+import NoteUpdatePage from "./NoteUpdatePage";
 
 interface NoteModel {
   id: number;
@@ -12,11 +13,27 @@ interface NoteModel {
 }
 
 const NoteDash = () => {
-  const [notes, setNotes] = useState<NoteModel[]>([]);
+  const [notes, setNotes] = useState<NoteModel[]>(() => {
+    const savedNotes = localStorage.getItem("notes");
+    if (savedNotes) {
+      return JSON.parse(savedNotes);
+    } else {
+      return [];
+    }
+  });
   const [userTitleInput, setUserTitleInput] = useState<string>("");
   const [userContentInput, setUserContentInput] = useState<string>("");
-  const [noteDate, setNoteDate] = useState<string>("");
+  //   const [noteDate, setNoteDate] = useState<string>("");
   const [displayAddNoteForm, setDisplayAddNoteForm] = useState<boolean>(false);
+  const [openUpdatePage, setOpenUpdatePage] = useState<boolean>(false);
+
+  const [userEditTitleInput, setUserEditTitleInput] = useState<string>("");
+  const [userEditContentInput, setUserEditContentInput] = useState<string>("");
+  const [editID, setEditID] = useState<number>(0);
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
 
   const isToggleAddForm = () => {
     setDisplayAddNoteForm(!displayAddNoteForm);
@@ -45,9 +62,49 @@ const NoteDash = () => {
     isToggleAddForm();
   };
 
+  const deleteNote = (id: number) => {
+    const filteredNotes = notes.filter((items: NoteModel) => {
+      return items.id !== id;
+    });
+    setNotes(filteredNotes);
+  };
+
+  const toggleUpdatePage = (
+    id: number,
+    title: string,
+    content: string,
+    date: string
+  ) => {
+    console.log(id, title, content);
+
+    setEditID(id);
+    setUserEditTitleInput(title);
+    setUserEditContentInput(content);
+    setOpenUpdatePage(!openUpdatePage);
+  };
+
+  const saveEditedNote = (id: number, e: FormEvent) => {
+    e.preventDefault();
+    const editDate = new Date();
+    const nDate = `${
+      editDate.getMonth() + 1
+    }/${editDate.getDate()}/${editDate.getFullYear()}`;
+    const nTime = `${editDate.getHours()}:${editDate.getMinutes()}:${editDate.getSeconds()}`;
+    const editedNote = notes.map((items: NoteModel) => {
+      if (items.id === id) {
+        items.noteTitle = userEditTitleInput;
+        items.noteContent = userEditContentInput;
+        items.noteDateTime = `${nDate} | ${nTime}`;
+      }
+      return items;
+    });
+    setNotes(editedNote);
+    setOpenUpdatePage(!openUpdatePage);
+  };
+
   return (
     <>
-      <div className="bg-[green] w-[100%] p-[15px]">
+      <div className=" w-[100%]  p-[10px]">
         {notes.length === 0 ? (
           displayAddNoteForm ? (
             <div className="addForm fixed top-[0] left-[0] h-[100vh] w-[100%] flex flex-col items-center justify-center">
@@ -61,12 +118,6 @@ const NoteDash = () => {
                 />
               </div>
               <div>
-                {/* <button
-                  onClick={isToggleAddForm}
-                  className="p-[10px] border-[black] border-solid border-[1px]"
-                >
-                  Cancel
-                </button> */}
                 <NoteButton
                   buttontext="Cancel"
                   buttonWidth="120px"
@@ -76,7 +127,7 @@ const NoteDash = () => {
               </div>
             </div>
           ) : (
-            <div className="h-[60vh] bg-[black] p-[10px] flex flex-col items-center justify-center">
+            <div className="h-[70vh] bg-[#1F2937] p-[10px] flex flex-col items-center justify-center">
               <NoteButton
                 buttontext="+"
                 btnTextSize="45px"
@@ -111,25 +162,63 @@ const NoteDash = () => {
               </div>
             )}
             <div className="">
-              {notes.map((items: NoteModel) => {
-                return (
-                  <NoteCard
-                    key={items.id}
-                    noteTitle={items.noteTitle}
-                    noteContent={items.noteContent}
-                    noteDateTime={items.noteDateTime}
-                  />
-                );
-              })}
-              <NoteButton
-                buttontext="+"
-                btnTextSize="20px"
-                buttonWidth="50px"
-                buttonHeight="50px"
-                buttonRadius="50%"
-                buttonFunct={isToggleAddForm}
-              />
+              <div className="note-list-con p-[10px]   bg-[#1F2937]">
+                {notes.map((items: NoteModel) => {
+                  return (
+                    <NoteCard
+                      key={items.id}
+                      noteTitle={items.noteTitle}
+                      noteContent={items.noteContent}
+                      noteDateTime={items.noteDateTime}
+                      deleteNote={() => {
+                        deleteNote(items.id);
+                      }}
+                      toggleUpdatePage={() => {
+                        toggleUpdatePage(
+                          items.id,
+                          items.noteTitle,
+                          items.noteContent,
+                          items.noteDateTime
+                        );
+                      }}
+                    />
+                  );
+                })}
+              </div>
+              <div className="mt-[10px]  flex justify-end ">
+                <NoteButton
+                  buttontext="+"
+                  btnTextSize="20px"
+                  buttonWidth="50px"
+                  buttonHeight="50px"
+                  buttonRadius="50%"
+                  buttonFunct={isToggleAddForm}
+                />
+              </div>
             </div>
+            {openUpdatePage && (
+              <div className="addForm fixed top-[0] left-[0] h-[100vh] w-[100%] flex flex-col items-center justify-center z-[2]">
+                <NoteUpdatePage
+                  saveEditedNote={(e: any) => {
+                    saveEditedNote(editID, e);
+                  }}
+                  userEditTitleInput={userEditTitleInput}
+                  setUserEditTitleInput={setUserEditTitleInput}
+                  userEditContentInput={userEditContentInput}
+                  setUserEditContentInput={setUserEditContentInput}
+                />
+                <div>
+                  <NoteButton
+                    buttontext="Cancel"
+                    buttonWidth="120px"
+                    buttonRadius="5px"
+                    buttonFunct={() => {
+                      setOpenUpdatePage(!openUpdatePage);
+                    }}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -139,31 +228,3 @@ const NoteDash = () => {
 };
 
 export default NoteDash;
-
-{
-  /* <form onSubmit={addNotes} className="flex flex-col">
-                  <input
-                    className="m-[5px] p-[7px] bg-[green]"
-                    type="text"
-                    placeholder="Note Title"
-                    value={userTitleInput}
-                    onChange={(e) => {
-                      setUserTitleInput(e.target.value);
-                    }}
-                  />
-                  <input
-                    className="m-[5px] p-[7px] bg-[green]"
-                    type="text"
-                    placeholder="Note Content"
-                    value={userContentInput}
-                    onChange={(e) => {
-                      setUserContentInput(e.target.value);
-                    }}
-                  />
-                  <input
-                    className="p-[10px] border-[green] border-solid border-[1px]"
-                    type="submit"
-                    value="Add Note"
-                  />
-                </form> */
-}

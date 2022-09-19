@@ -7,14 +7,16 @@ const NoteButton = ({
   buttonRadius,
   btnTextSize,
   buttonFunct,
+  buttonColor,
 }: any) => {
   return (
     <button
-      className="m-[10px] pl-[10px] pr-[10px] pt-[7px] pb-[7px] border-[yellow] border-solid border-[1px]"
+      className=" mr-[10px] mt-[10x] mb-[10px] pl-[9px] pr-[9px] pt-[4px] pb-[4px] border-[#0ED3CF] border-solid border-[2px]"
       style={{
         borderRadius: `${buttonRadius}`,
         width: `${buttonWidth}`,
         height: `${buttonHeight}`,
+        backgroundColor: `${buttonColor}`,
       }}
       onClick={() => {
         buttonFunct();

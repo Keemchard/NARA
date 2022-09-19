@@ -12,6 +12,14 @@
   backdrop-filter: blur(10px) !important;
 }
 
+.note-list-con {
+  height: 70vh;
+  /* background-color: saddlebrown; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 2fr));
+  overflow-y: scroll;
+}
+
 @media only screen and (max-width: 1194px) {
   .datentime {
     width: 350px;
