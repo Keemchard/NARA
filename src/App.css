@@ -9,7 +9,7 @@
 
 .addForm {
   /* background-color: aqua !important; */
-  backdrop-filter: blur(5px) !important;
+  backdrop-filter: blur(10px) !important;
 }
 
 @media only screen and (max-width: 1194px) {

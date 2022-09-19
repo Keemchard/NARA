@@ -1,6 +1,7 @@
 import React, { FormEvent, useState } from "react";
 import "../App.css";
 import NoteAddForm from "./NoteAddForm";
+import NoteButton from "./NoteButton";
 import NoteCard from "./NoteCard";
 
 interface NoteModel {
@@ -21,11 +22,9 @@ const NoteDash = () => {
     setDisplayAddNoteForm(!displayAddNoteForm);
   };
 
-  const date = new Date();
-
   const addNotes = (e: FormEvent) => {
     e.preventDefault();
-
+    const date = new Date();
     const nDate = `${
       date.getMonth() + 1
     }/${date.getDate()}/${date.getFullYear()}`;
@@ -41,6 +40,8 @@ const NoteDash = () => {
       ...notes,
     ];
     setNotes(newSetOfNotes);
+    setUserTitleInput("");
+    setUserContentInput("");
     isToggleAddForm();
   };
 
@@ -60,22 +61,30 @@ const NoteDash = () => {
                 />
               </div>
               <div>
-                <button
+                {/* <button
                   onClick={isToggleAddForm}
                   className="p-[10px] border-[black] border-solid border-[1px]"
                 >
                   Cancel
-                </button>
+                </button> */}
+                <NoteButton
+                  buttontext="Cancel"
+                  buttonWidth="120px"
+                  buttonRadius="5px"
+                  buttonFunct={isToggleAddForm}
+                />
               </div>
             </div>
           ) : (
             <div className="h-[60vh] bg-[black] p-[10px] flex flex-col items-center justify-center">
-              <button
-                onClick={isToggleAddForm}
-                className="p-[10px] border-[green] border-solid border-[1px]"
-              >
-                Add note
-              </button>
+              <NoteButton
+                buttontext="+"
+                btnTextSize="45px"
+                buttonWidth="100px"
+                buttonHeight="100px"
+                buttonRadius="50%"
+                buttonFunct={isToggleAddForm}
+              />
             </div>
           )
         ) : (
@@ -92,12 +101,12 @@ const NoteDash = () => {
                   />
                 </div>
                 <div>
-                  <button
-                    onClick={isToggleAddForm}
-                    className="p-[10px] border-[black] border-solid border-[1px]"
-                  >
-                    Cancel
-                  </button>
+                  <NoteButton
+                    buttontext="Cancel"
+                    buttonWidth="120px"
+                    buttonRadius="5px"
+                    buttonFunct={isToggleAddForm}
+                  />
                 </div>
               </div>
             )}
@@ -112,12 +121,14 @@ const NoteDash = () => {
                   />
                 );
               })}
-              <button
-                onClick={isToggleAddForm}
-                className="p-[10px] border-[black] border-solid border-[1px]"
-              >
-                Add note
-              </button>
+              <NoteButton
+                buttontext="+"
+                btnTextSize="20px"
+                buttonWidth="50px"
+                buttonHeight="50px"
+                buttonRadius="50%"
+                buttonFunct={isToggleAddForm}
+              />
             </div>
           </div>
         )}
