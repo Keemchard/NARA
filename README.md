@@ -1,6 +1,6 @@
-# Boost your productivity using TL
+# Boost your productivity using NARA
 
-![mainlogoicon](https://user-images.githubusercontent.com/86994854/190336964-dcae367e-ec6b-4bfb-b00a-beae305b790f.png)
+![naraDashLogoSmall](https://user-images.githubusercontent.com/86994854/191010119-9699e4ef-ff3c-4e39-a864-d388aec006a5.png)
 
 
 ## Available Scripts
