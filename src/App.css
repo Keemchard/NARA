@@ -7,6 +7,11 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
+.addForm {
+  /* background-color: aqua !important; */
+  /* backdrop-filter: blur(5px) !important; */
+}
+
 @media only screen and (max-width: 1194px) {
   .datentime {
     width: 350px;
