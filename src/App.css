@@ -36,6 +36,10 @@
   .main-head .menu {
     flex: auto;
   }
+  .display-all {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media only screen and (max-width: 692px) {

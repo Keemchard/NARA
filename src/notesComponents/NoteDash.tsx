@@ -104,7 +104,12 @@ const NoteDash = () => {
 
   return (
     <>
-      <div className=" w-[100%]  p-[10px]">
+      <div className=" w-[100%]  p-[5px]">
+        <div className="m-[10px]  text-center">
+          <p className="font-bold text-[35px]">
+            NO<span className="text-[#0ED3CF]">TE</span>
+          </p>
+        </div>
         {notes.length === 0 ? (
           displayAddNoteForm ? (
             <div className="addForm fixed top-[0] left-[0] h-[100vh] w-[100%] flex flex-col items-center justify-center">

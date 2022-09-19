@@ -1,13 +1,15 @@
 import React from "react";
+import NoteDash from "./notesComponents/NoteDash";
+import TodoDash from "./TodoDash";
 
 const DisplayAll = () => {
   return (
-    <div>
-      <div>DisplayAll COMING SOON </div>
-      <div>
-        for now just click the [{" "}
-        <span className="text-[#0ED3CF] font-bold">What To Display?</span> ]
-        dropdown above, then click Todo
+    <div className="display-all flex w-[100%]  p-[10px] pt=[0]">
+      <div className="flex-1">
+        <TodoDash />
+      </div>
+      <div className="flex-[2] w-[100%]">
+        <NoteDash />
       </div>
     </div>
   );
