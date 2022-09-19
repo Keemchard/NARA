@@ -2,8 +2,87 @@
   overflow-y: scroll;
 }
 
+.datentime {
+  /* backdrop-filter: blur(50px); */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+.addForm {
+  /* background-color: aqua !important; */
+  backdrop-filter: blur(10px) !important;
+}
+
+.note-list-con {
+  height: 70vh;
+  /* background-color: saddlebrown; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 2fr));
+  overflow-y: scroll;
+}
+
+@media only screen and (max-width: 1194px) {
+  .datentime {
+    width: 350px;
+  }
+  .day {
+    font-size: 22px;
+  }
+  .time {
+    font-size: 35px;
+  }
+  .main-head .logo {
+    flex: auto;
+  }
+  .main-head .menu {
+    flex: auto;
+  }
+  .display-all {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 692px) {
+  .main-head {
+    flex-direction: column;
+    align-items: baseline;
+    position: relative;
+  }
+  .menu {
+    width: 100%;
+  }
+  .logo {
+    align-items: center;
+  }
+  .logo-img {
+    width: 100px;
+    margin-top: 10px;
+  }
+  .datentime {
+    width: 250px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .day {
+    font-size: 15px;
+  }
+  .time {
+    font-size: 25px;
+  }
+  .date {
+    font-size: 12px;
+  }
+  .dropdown {
+    margin-top: 20px;
+  }
+  .dropdown button {
+    margin-right: 0;
+  }
+}
+
 @media only screen and (max-width: 600px) {
-  .todo-con {
+  .todo-main-con {
     width: 100%;
   }
 }
