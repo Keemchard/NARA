@@ -80,7 +80,7 @@ const NoteDash = () => {
           )
         ) : (
           <div>
-            {displayAddNoteForm ? (
+            {displayAddNoteForm && (
               <div className="addForm fixed top-[0] left-[0] h-[100vh] w-[100%] flex flex-col items-center justify-center">
                 <div>
                   <NoteAddForm
@@ -100,26 +100,25 @@ const NoteDash = () => {
                   </button>
                 </div>
               </div>
-            ) : (
-              <div className=" ">
-                {notes.map((items: NoteModel) => {
-                  return (
-                    <NoteCard
-                      key={items.id}
-                      noteTitle={items.noteTitle}
-                      noteContent={items.noteContent}
-                      noteDateTime={items.noteDateTime}
-                    />
-                  );
-                })}
-                <button
-                  onClick={isToggleAddForm}
-                  className="p-[10px] border-[black] border-solid border-[1px]"
-                >
-                  Add note
-                </button>
-              </div>
             )}
+            <div className="">
+              {notes.map((items: NoteModel) => {
+                return (
+                  <NoteCard
+                    key={items.id}
+                    noteTitle={items.noteTitle}
+                    noteContent={items.noteContent}
+                    noteDateTime={items.noteDateTime}
+                  />
+                );
+              })}
+              <button
+                onClick={isToggleAddForm}
+                className="p-[10px] border-[black] border-solid border-[1px]"
+              >
+                Add note
+              </button>
+            </div>
           </div>
         )}
       </div>
