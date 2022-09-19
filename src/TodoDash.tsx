@@ -75,7 +75,7 @@ const TodoDash = () => {
   };
 
   return (
-    <div className="todo-main-con text-center   w-[520px]">
+    <div className="todo-main-con text-center w-[520px]  ">
       <Header />
       <div className="todo-con bg-[transparent] p-[10px]">
         <div className="form-con bg-[transparent]  mb-[10px] pt-[10px] pb-[10px]">
