@@ -56,12 +56,14 @@ const MainHeader = () => {
                   Display All <FaArrowRight />
                 </li>
               </Link>
-              <li
-                onClick={openMenu}
-                className="bg-[#374151] p-[5px] mb-[5px] flex items-center justify-between"
-              >
-                Bored? click this! <FaArrowRight />
-              </li>
+              <Link to="/extra">
+                <li
+                  onClick={openMenu}
+                  className="bg-[#374151] p-[5px] mb-[5px] flex items-center justify-between"
+                >
+                  Bored? click this! <FaArrowRight />
+                </li>
+              </Link>
             </ul>
           )}
         </div>

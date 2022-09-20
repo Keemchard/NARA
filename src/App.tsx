@@ -3,6 +3,7 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 // import logo from "./logo.svg";
 import "./App.css";
 import DisplayAll from "./DisplayAll";
+import Extra from "./extraComponent/Extra";
 import MainHeader from "./MainHeader";
 import NoteDash from "./notesComponents/NoteDash";
 import TodoDash from "./TodoDash";
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<DisplayAll />} />
           <Route path="/todo" element={<TodoDash />} />
           <Route path="/note" element={<NoteDash />} />
+          <Route path="/extra" element={<Extra />} />
         </Routes>
       </div>
     </div>
