@@ -9,7 +9,7 @@ const NoteCard = ({
   toggleUpdatePage,
 }: any) => {
   return (
-    <div className="bg-[#374151] m-[10px] pt-[5px] pr-[5px] p-[10px]  rounded  ">
+    <div className="note-crd bg-[#374151] m-[10px] pt-[5px] pr-[5px] p-[10px]  rounded  ">
       <div className="flex justify-end">
         <p className=" text-[13px] top-[3px] right-[10px]">{noteDateTime}</p>
       </div>
