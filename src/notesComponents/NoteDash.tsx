@@ -158,6 +158,7 @@ const NoteDash = () => {
                 </div>
                 <div>
                   <NoteButton
+                    buttonColor="green"
                     buttontext="Cancel"
                     buttonWidth="120px"
                     buttonRadius="5px"
@@ -214,6 +215,7 @@ const NoteDash = () => {
                 />
                 <div>
                   <NoteButton
+                    buttonColor="green"
                     buttontext="Cancel"
                     buttonWidth="120px"
                     buttonRadius="5px"

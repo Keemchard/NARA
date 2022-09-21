@@ -8,9 +8,9 @@ const NoteAddForm = ({
   setUserContentInput,
 }: any) => {
   return (
-    <form onSubmit={addNotes} className="flex flex-col w-[330px]">
+    <form onSubmit={addNotes} className="flex flex-col w-[350px]">
       <input
-        className="m-[5px] p-[7px] bg-[#374151]"
+        className="m-[5px] p-[7px] bg-[#374151] border-[#0ED3CF] border-solid border-[1px]"
         type="text"
         placeholder="Note Title"
         value={userTitleInput}
@@ -21,7 +21,7 @@ const NoteAddForm = ({
       <textarea
         rows={10}
         cols={50}
-        className="m-[5px] p-[7px] bg-[#374151]  mb-[20px] "
+        className="m-[5px] p-[7px] bg-[#374151]  mb-[20px] border-[#0ED3CF] border-solid border-[1px]"
         placeholder="Note Content"
         value={userContentInput}
         onChange={(e) => {
