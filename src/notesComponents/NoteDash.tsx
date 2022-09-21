@@ -104,7 +104,7 @@ const NoteDash = () => {
 
   return (
     <>
-      <div className=" w-[100%]  p-[5px]  ">
+      <div className=" w-[100%]  p-[5px] ml-[10px] mr-[10px] ">
         <div className="m-[10px] mt-[0] mb-[30px]  text-center">
           <p className="font-bold text-[35px]">
             NO<span className="text-[#0ED3CF]">TE</span>

@@ -8,7 +8,7 @@ const DisplayAll = () => {
       <div className="flex-[1]">
         <TodoDash />
       </div>
-      <div className="flex-[2.5] w-[100%]">
+      <div className="flex-[2.5] w-[100%] mr-[20px]">
         <NoteDash />
       </div>
     </div>

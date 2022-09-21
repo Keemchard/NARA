@@ -101,7 +101,7 @@ const TodoDash = () => {
             <InvalidInput text="💥Invalid Input!💥" />
           </div>
         )}
-        <div className="list-con bg-[#1F2937] w-[100%] h-[450px] rounded">
+        <div className="list-con bg-[#1F2937] w-[100%] h-[55vh] rounded">
           <TodoList
             todos={todos}
             deleteTodo={deleteTodo}
@@ -110,7 +110,6 @@ const TodoDash = () => {
           />
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

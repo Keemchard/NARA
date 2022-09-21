@@ -2,6 +2,7 @@ import React, { FormEvent, useEffect, useState } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 // import logo from "./logo.svg";
 import "./App.css";
+import Footer from "./components/Footer";
 import DisplayAll from "./DisplayAll";
 import Extra from "./extraComponent/Extra";
 import MainHeader from "./MainHeader";
@@ -21,6 +22,7 @@ function App() {
           <Route path="/extra" element={<Extra />} />
         </Routes>
       </div>
+      <Footer />
     </div>
   );
 }
