@@ -190,7 +190,7 @@ const NoteDash = () => {
                   );
                 })}
               </div>
-              <div className="mt-[10px]  flex justify-end ">
+              <div className="mt-[-70px]  mr-[10px]  flex justify-end ">
                 <NoteButton
                   buttontext="+"
                   btnTextSize="20px"
