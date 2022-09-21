@@ -1,4 +1,5 @@
 import React, { FormEvent, useEffect, useState } from "react";
+import { FaLevelDownAlt } from "react-icons/fa";
 import "../App.css";
 import NoteAddForm from "./NoteAddForm";
 import NoteButton from "./NoteButton";
@@ -31,6 +32,9 @@ const NoteDash = () => {
   const [userEditContentInput, setUserEditContentInput] = useState<string>("");
   const [editID, setEditID] = useState<number>(0);
 
+  //for invalid input states
+  const [isInvalidAdd, setIsInvalidAdd] = useState<boolean>(false);
+
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
@@ -56,10 +60,19 @@ const NoteDash = () => {
       },
       ...notes,
     ];
-    setNotes(newSetOfNotes);
-    setUserTitleInput("");
-    setUserContentInput("");
-    isToggleAddForm();
+
+    let formattedTitleInputNote = userTitleInput;
+    let formattedContentInputNote = userContentInput;
+    formattedTitleInputNote = formattedTitleInputNote.replace(/\s+/g, "");
+    formattedContentInputNote = formattedContentInputNote.replace(/\s+/g, "");
+    if (formattedTitleInputNote === "" || formattedContentInputNote === "") {
+      alert("Invalid Input");
+    } else {
+      setNotes(newSetOfNotes);
+      setUserTitleInput("");
+      setUserContentInput("");
+      isToggleAddForm();
+    }
   };
 
   const deleteNote = (id: number) => {
@@ -90,16 +103,36 @@ const NoteDash = () => {
       editDate.getMonth() + 1
     }/${editDate.getDate()}/${editDate.getFullYear()}`;
     const nTime = `${editDate.getHours()}:${editDate.getMinutes()}:${editDate.getSeconds()}`;
-    const editedNote = notes.map((items: NoteModel) => {
-      if (items.id === id) {
-        items.noteTitle = userEditTitleInput;
-        items.noteContent = userEditContentInput;
-        items.noteDateTime = `${nDate} | ${nTime}`;
-      }
-      return items;
-    });
-    setNotes(editedNote);
-    setOpenUpdatePage(!openUpdatePage);
+
+    let formattedTitleEditInputNote = userEditTitleInput;
+    let formattedContentEditInputNote = userEditContentInput;
+
+    formattedTitleEditInputNote = formattedTitleEditInputNote.replace(
+      /\s+/g,
+      ""
+    );
+    formattedContentEditInputNote = formattedContentEditInputNote.replace(
+      /\s+/g,
+      ""
+    );
+
+    if (
+      formattedTitleEditInputNote === "" ||
+      formattedContentEditInputNote === ""
+    ) {
+      alert("Invalid Edit Input");
+    } else {
+      const editedNote = notes.map((items: NoteModel) => {
+        if (items.id === id) {
+          items.noteTitle = userEditTitleInput;
+          items.noteContent = userEditContentInput;
+          items.noteDateTime = `${nDate} | ${nTime}`;
+        }
+        return items;
+      });
+      setNotes(editedNote);
+      setOpenUpdatePage(!openUpdatePage);
+    }
   };
 
   return (
