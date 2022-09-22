@@ -20,6 +20,10 @@ const TodoDash = () => {
   const [userInput, setUserInput] = useState<string>("");
   const [isAddInputEmpty, setIsAddInputEmpty] = useState<boolean>(false);
 
+  const [allTab, setAllTab] = useState<boolean>(false);
+  const [pendingTab, setPendingTab] = useState<boolean>(false);
+  const [completedTab, setCompletedTab] = useState<boolean>(false);
+
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
@@ -101,12 +105,62 @@ const TodoDash = () => {
             <InvalidInput text="💥Invalid Input!💥" />
           </div>
         )}
+        <div className=" flex justify-between p-[5px]">
+          <div
+            className="All   w-[100%] p-[5px]"
+            onClick={() => {
+              setAllTab(true);
+              setPendingTab(false);
+              setCompletedTab(false);
+            }}
+            style={
+              allTab
+                ? { color: "#0ED3CF", fontWeight: "bold" }
+                : { color: "white" }
+            }
+          >
+            All
+          </div>
+          <div
+            className="Pending   w-[100%] p-[5px]"
+            onClick={() => {
+              setAllTab(false);
+              setPendingTab(true);
+              setCompletedTab(false);
+            }}
+            style={
+              pendingTab
+                ? { color: "#0ED3CF", fontWeight: "bold" }
+                : { color: "white" }
+            }
+          >
+            Pending
+          </div>
+          <div
+            className="Completed   w-[100%] p-[5px]"
+            onClick={() => {
+              setAllTab(false);
+              setPendingTab(false);
+              setCompletedTab(true);
+            }}
+            style={
+              completedTab
+                ? { color: "#0ED3CF", fontWeight: "bold" }
+                : { color: "white" }
+            }
+          >
+            Completed
+          </div>
+        </div>
         <div className="list-con bg-[#1F2937] w-[100%] h-[55vh] rounded">
           <TodoList
             todos={todos}
             deleteTodo={deleteTodo}
             saveEdit={saveEdit}
             doneTodo={doneTodo}
+            allTab={allTab}
+            pendingTab={pendingTab}
+            completedTab={completedTab}
           />
         </div>
       </div>
