@@ -28,7 +28,7 @@ const Extra = () => {
                 setShowFeedback(!showFeedback);
               }}
             >
-              I want to here your feedback!
+              I want to here your feedback and suggestions!
             </button>
           </div>
         )}
