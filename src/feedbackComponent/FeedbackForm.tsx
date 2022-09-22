@@ -26,12 +26,12 @@ const FeedbackForm = () => {
           />
         </p>
         <p className="mb-[10px]">
-          <div> FeedBack</div>
+          <div>FeedBack</div>
           <textarea
             rows={10}
             cols={40}
             className="bg-[#1F2937] p-[7px]"
-            name="feedback"
+            name="Message"
           ></textarea>
         </p>
         <p className="mb-[10px]">
