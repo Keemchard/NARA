@@ -26,7 +26,7 @@ const FeedbackForm = () => {
           />
         </p>
         <p className="mb-[10px]">
-          <div>FeedBack</div>
+          FeedBack
           <textarea
             rows={10}
             cols={40}
