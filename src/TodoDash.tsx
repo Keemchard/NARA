@@ -20,7 +20,7 @@ const TodoDash = () => {
   const [userInput, setUserInput] = useState<string>("");
   const [isAddInputEmpty, setIsAddInputEmpty] = useState<boolean>(false);
 
-  const [allTab, setAllTab] = useState<boolean>(false);
+  const [allTab, setAllTab] = useState<boolean>(true);
   const [pendingTab, setPendingTab] = useState<boolean>(false);
   const [completedTab, setCompletedTab] = useState<boolean>(false);
 
