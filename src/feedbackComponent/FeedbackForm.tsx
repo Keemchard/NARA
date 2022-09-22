@@ -31,7 +31,7 @@ const FeedbackForm = () => {
             rows={10}
             cols={40}
             className="bg-[#1F2937] p-[7px]"
-            name="Message"
+            name="message"
           ></textarea>
         </p>
         <p className="mb-[10px]">
