@@ -80,7 +80,7 @@ const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
           </div>
         </div>
       ) : (
-        <div className="flex items-center justify-between">
+        <div className="todo-crd flex items-center justify-between">
           <div className="flex w-[60%] text-left">
             <input
               className="bg-[#1F2937]"
