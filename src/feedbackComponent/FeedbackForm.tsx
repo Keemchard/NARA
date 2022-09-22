@@ -29,7 +29,7 @@ const FeedbackForm = () => {
           FeedBack
           <textarea
             rows={10}
-            cols={40}
+            cols={30}
             className="bg-[#1F2937] p-[7px]"
             name="message"
           ></textarea>
