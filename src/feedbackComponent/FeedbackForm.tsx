@@ -25,7 +25,7 @@ const FeedbackForm = () => {
             name="email"
           />
         </p>
-        <p className="mb-[10px]">
+        <p className="mb-[10px] flex flex-col">
           FeedBack
           <textarea
             rows={10}
