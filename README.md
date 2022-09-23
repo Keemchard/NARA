@@ -2,6 +2,8 @@
 
 ![naraDashLogoSmall](https://user-images.githubusercontent.com/86994854/191010119-9699e4ef-ff3c-4e39-a864-d388aec006a5.png)
 
+![NARAGif](https://user-images.githubusercontent.com/86994854/191878802-91d3ff50-bab3-41b6-9c61-6951ada831ca.gif)
+
 
 ## Available Scripts
 
