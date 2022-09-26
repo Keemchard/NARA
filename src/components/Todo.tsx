@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TodoModel } from "../Types/TodoModel";
 import InvalidInput from "./InvalidInput";
+import Modal from "./Modal";
 import TodoButton from "./TodoButton";
 
 interface TodolistMod {
@@ -18,6 +19,8 @@ const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
   const [completed, setCompleted] = useState<any>(isDone);
 
   const [invalidEdit, setInvalidEdit] = useState<boolean>(false);
+
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const toggleEdit = (id: number) => {
     setEditInput(title);
@@ -79,6 +82,18 @@ const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
             />
           </div>
         </div>
+      ) : isModalOpen ? (
+        <div>
+          <Modal
+            text={`Delete ${title}?`}
+            myFunctDel={() => {
+              deleteTodo(id);
+            }}
+            myFunctCancel={() => {
+              setIsModalOpen(!isModalOpen);
+            }}
+          />
+        </div>
       ) : (
         <div className="todo-crd flex items-center justify-between">
           <div className="flex w-[60%] text-left">
@@ -114,7 +129,8 @@ const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
               buttonName="Delete"
               buttonColor="red"
               buttonFunction={() => {
-                deleteTodo(id);
+                setIsModalOpen(!isModalOpen);
+                // deleteTodo(id);
               }}
             />
           </div>
@@ -125,3 +141,4 @@ const Todo = ({ todos, deleteTodo, saveEdit, doneTodo }: TodolistMod) => {
 };
 
 export default Todo;
+// {isModalOpen ? <div>Modal is Open</div> : <div>Modal is close</div>}
