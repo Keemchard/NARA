@@ -6,7 +6,9 @@ const Extra = () => {
 
   return (
     <div className="flex flex-col items-center mb-[100px]">
+      {/* ---------------- here the boredom killer page ---------------- */}
       <div className="mb-[20px]">Coming soon 🔥, Just wait lol</div>
+      {/* ---------------- here the boredom killer page ---------------- */}
       <div>
         {showFeedback ? (
           <div>
