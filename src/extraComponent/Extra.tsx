@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import FeedbackForm from "../feedbackComponent/FeedbackForm";
+import extraModel from "../Types/extraItemsModel";
+import extraItems from "../utils/extraItem";
+import ExtraItemCards from "./extra items/ExtraItemCards";
 
 const Extra = () => {
   const [showFeedback, setShowFeedback] = useState<boolean>(false);
@@ -7,7 +10,19 @@ const Extra = () => {
   return (
     <div className="flex flex-col items-center mb-[100px]">
       {/* ---------------- here the boredom killer page ---------------- */}
-      <div className="mb-[20px]">Coming soon 🔥, Just wait lol</div>
+      <div className="mb-[20px]">Beta page 🙈</div>
+      {extraItems.map((items: extraModel) => {
+        const { title, short_description, link } = items;
+        return (
+          <div>
+            <ExtraItemCards
+              title={title}
+              short_description={short_description}
+              link={link}
+            />
+          </div>
+        );
+      })}
       {/* ---------------- here the boredom killer page ---------------- */}
       <div>
         {showFeedback ? (
@@ -30,7 +45,7 @@ const Extra = () => {
                 setShowFeedback(!showFeedback);
               }}
             >
-              I'd love to hear your feedbacks and suggestions!
+              (Click Me🔥) I'd love to hear your feedbacks and suggestions!
             </button>
           </div>
         )}
