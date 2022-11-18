@@ -8,7 +8,7 @@ const ExtraItemCards: FC<extraModel> = ({ title, short_description, link }) => {
       <div>{short_description}</div>
       <div className="mt-[20px] mb-[20px]">
         <a href={link} target="_blank">
-          <button className="hover:bg-[#0ED3CF] border-[1px] rounded p-[8px] w-[200px]">{`Go to ${title}`}</button>
+          <button className="hover:bg-[#0ED3CF] border-[1px] rounded p-[8px] w-[250px]">{`Go to ${title}`}</button>
         </a>
       </div>
     </div>
