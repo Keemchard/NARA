@@ -17,7 +17,7 @@ const extraItems: extraModel[] = [
   },
   {
     id: Math.random(),
-    title: "Librong Bulate",
+    title: "Librong Bulate [Beta]",
     short_description: "A web app for book worms",
     link: "https://librong-bulate-kc.netlify.app/",
   },
