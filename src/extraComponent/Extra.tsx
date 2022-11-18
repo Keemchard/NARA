@@ -14,7 +14,7 @@ const Extra = () => {
       {extraItems.map((items: extraModel) => {
         const { title, short_description, link } = items;
         return (
-          <div>
+          <div className="w-[100%] extras">
             <ExtraItemCards
               title={title}
               short_description={short_description}
