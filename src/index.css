@@ -1,41 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Inter:wght@300;400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
+:root {
+  --bg-base: #0A0A0A;
+  --bg-surface: #131313;
+  --bg-elevated: #1A1A1A;
+  --bg-overlay: rgba(0, 0, 0, 0.75);
+  --border: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+  --accent: #C4A265;
+  --accent-hover: #D4B275;
+  --accent-muted: rgba(196, 162, 101, 0.12);
+  --text-primary: #E8E4DF;
+  --text-secondary: #8A8478;
+  --text-muted: #5A5650;
+  --success: #6B8F6B;
+  --danger: #9B5555;
+  --sidebar-width: 240px;
+  --hover-bg: rgba(255, 255, 255, 0.02);
+  --subtle-bg: rgba(255, 255, 255, 0.04);
+  --note-clay: #3D2B24;
+  --note-clay-border: #6B4A3A;
+  --note-olive: #2B3028;
+  --note-olive-border: #4A5A42;
+  --note-slate: #272A30;
+  --note-slate-border: #454B56;
+  --note-amber: #332D1F;
+  --note-amber-border: #5A4D33;
+}
+
+[data-theme='light'] {
+  --bg-base: #F5F3F0;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #EDE9E4;
+  --bg-overlay: rgba(0, 0, 0, 0.4);
+  --border: rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(0, 0, 0, 0.16);
+  --accent: #9E7C3C;
+  --accent-hover: #8A6B30;
+  --accent-muted: rgba(158, 124, 60, 0.1);
+  --text-primary: #1A1A1A;
+  --text-secondary: #5A5650;
+  --text-muted: #9A9590;
+  --success: #4A6F4A;
+  --danger: #8B3A3A;
+  --hover-bg: rgba(0, 0, 0, 0.02);
+  --subtle-bg: rgba(0, 0, 0, 0.04);
+  --note-clay: #F0DDD5;
+  --note-clay-border: #D4A98E;
+  --note-olive: #DDE8D8;
+  --note-olive-border: #8FAA7E;
+  --note-slate: #DDE0E6;
+  --note-slate-border: #9AA0AE;
+  --note-amber: #EDE4CF;
+  --note-amber-border: #C4A86A;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #111827;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.5;
+  overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.heading-serif {
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  color: white;
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
 }
 
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #374151;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0ed3cf;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
 }
 
-/* ::-webkit-scrollbar-thumb:hover {
-  background: #555;
-} */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+::selection {
+  background: var(--accent-muted);
+  color: var(--text-primary);
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  filter: invert(0.6);
+  cursor: pointer;
+}
+
+input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--border-hover);
+  border-radius: 2px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: background 150ms, border-color 150ms;
+}
+
+input[type='checkbox']:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+input[type='checkbox']:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: solid var(--bg-base);
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+
+[data-theme='light'] input[type='checkbox']:checked::after {
+  border-color: #FFFFFF;
+}
+
+[data-theme='light'] ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme='light'] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='light'] input[type='date']::-webkit-calendar-picker-indicator {
+  filter: none;
+}
+
+[data-theme='light'] select.input {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239A9590' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+}
